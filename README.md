@@ -30,7 +30,10 @@
     - `-p <代理端口>`
     - `--appPort <MediaServer启动端口>`
     - **注:此gin`是本地代理,用于实时编译代码`,非golang开发框架的gin。**
-    
+- 编译
+  - `go build && ./MediaServer -d /tmp/data` 本地版本
+  - `env GOOS=linux GOARCH=amd64 go build && ./MediaServer -d /tmp/data` linux amd64版本
+
 ## TODOS
 - [ ] 接入CDN配置
 - [ ] 支持GIF尺寸调整
