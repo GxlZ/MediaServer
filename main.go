@@ -11,6 +11,9 @@ import (
 	"MediaServer/utils"
 )
 
+//启动端口
+var port int
+
 func main() {
 	initENV()
 
@@ -23,12 +26,12 @@ func main() {
 	routers.Register(router)
 
 	//启动web 服务
-	router.Run(":12345")
+	router.Run(fmt.Sprintf(":%d",port))
 }
 
 func initENV() {
 	//环境变量
-	env := os.Getenv("IMAGE_SERVER_ENV")
+	env := os.Getenv("MEDIA_SERVER_ENV")
 	if env == "" {
 		env = "pro"
 	}
@@ -47,7 +50,11 @@ func initENV() {
 func initDir() {
 	//数据存放根目录
 	dataPath := flag.String("d", "", "set image save path")
+	//程序启动端口
+	portParm := flag.Int("p", 12345, "MediaServer start port")
 	flag.Parse()
+
+	port = *portParm
 
 	if *dataPath == "" {
 		log.Fatalln("data save path invalid! use ` -d <data path> ` set data save path or use ` -h ` get help.")
