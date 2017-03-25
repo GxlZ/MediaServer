@@ -14,6 +14,7 @@
 - [imageserver](https://github.com/GxlZ/imageserver) `golang图片处理库` 基于[pierrre/imageserver](https://github.com/pierrre/imageserver) fork 后进行部分改造
 
 ## 参数配置
+- 参数帮助 `-h` 例 `go run main.go -h`
 - 启动参数
   - `-p 启动端口` **注:可选参数`默认参数为12345`**
   - `-d <文件保存目录>` **注:必选参数`如果输入的目录不存在不会自动创建,并会提示错误`,`会在指定目录下自动生成videos,imgs,tmp文件夹`**
