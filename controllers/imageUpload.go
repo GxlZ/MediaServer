@@ -109,7 +109,7 @@ func getImgUrlInfo(host string, dirHashNumber int, imageName string, width int, 
 	if width == 0 && height == 0 {
 		url = fmt.Sprintf("http://%s/image/static/%d/%s", host, dirHashNumber, imageName)
 	} else {
-		url = fmt.Sprintf("http://%s/image/static/imgs/%d/%s_%dx%d", host, dirHashNumber, imageName, width, height)
+		url = fmt.Sprintf("http://%s/image/static/%d/%s_%dx%d", host, dirHashNumber, imageName, width, height)
 	}
 	return url
 }
