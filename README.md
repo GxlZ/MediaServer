@@ -14,13 +14,15 @@
 - [imageserver](https://github.com/GxlZ/imageserver) `golang图片处理库` 基于[pierrre/imageserver](https://github.com/pierrre/imageserver) fork 后进行部分改造
 
 ## 参数配置
+- 参数帮助 `-h` 例 `go run main.go -h`
 - 启动参数
-  - `-p 启动端口` **注:可选参数`默认参数为12345`**
-  - `-d <文件保存目录>` **注:必选参数`如果输入的目录不存在不会自动创建,并会提示错误`,`会在指定目录下自动生成videos,imgs,tmp文件夹`**
+  - `-p 启动端口` **注:可选参数`默认参数为12345`**
+  - `-d <文件保存目录>` **注:必选参数`如果输入的目录不存在不会自动创建,并会提示错误`,`会在指定目录下自动生成videos,imgs,tmp文件夹`**
 - 环境参数
-  - 在系统环境变量中设置 `MEDIA_SERVER_ENV` 指定运行环境 
+  - 在系统环境变量中设置 `MEDIA_SERVER_ENV` 指定运行环境 **配置,加载方法自行google,Baidu**
     - `dev` 开发环境
-    - `pro 或 不设置` 生产环境   
+    - `pro 或 不设置` 生产环境
+    - `echo $MEDIA_SERVER_ENV` 查看当前环境
 
 ## 运行
 - 调试
@@ -28,7 +30,7 @@
   - 通过gin代理端口,监听文件自动编译 `gin --appPort 12345 -p 12346` 启动后使用代理端口访问程序 
     - `-p <代理端口>`
     - `--appPort <MediaServer启动端口>`
-    - **注:此gin`是本地代理,用于实时编译代码`,非golang开发框架的gin。**
+    - **注:此[gin](https://github.com/codegangsta/gin)`是本地代理,用于实时编译代码`,非golang开发框架的gin。**
 - 编译
   - `go build && ./MediaServer -d /tmp/data` 本地版本
   - `env GOOS=linux GOARCH=amd64 go build && ./MediaServer -d /tmp/data` linux amd64版本
